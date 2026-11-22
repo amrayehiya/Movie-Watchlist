@@ -32,24 +32,26 @@ The correct way is `onClick={() => setFavourite(true)}`. This waits until the us
 **2.1 (Explain)** What does it mean for an input to be controlled? Describe what happens from one key press to the new text appearing in the box.
 
 My answer:
+A controlled input is an input field that is managed by React state. When I type a letter, the onChange event updates the state, and React displays the updated text in the input box.
 
 
 
 **2.2 (Explain)** Why is watchlist.push(item) followed by setWatchlist(watchlist) a bug?
 
 My answer:
-
+The push() method changes the original array instead of creating a new one. React may not detect the change because the array reference is still the same, so the page may not update correctly.
 
 
 **2.3 (Explain)** The heading shows how many movies are still to watch. Why does that number not need its own useState?
 
 My answer:
-
+The number can be calculated directly from the watchlist using filter(). Whenever the watchlist changes, React calculates the updated number automatically. So, we do not need separate state for it.
 
 
 **2.4 (Explain)** Why do list items use key={item.id} and not the index?
 
 My answer:
+Each item has a unique ID that stays the same even when items are deleted or added. Using the ID helps React identify each item correctly and update the list without confusion.
 
 
 
