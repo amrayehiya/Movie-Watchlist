@@ -1,6 +1,6 @@
 # My answers: Movie Watchlist workshop
 
-Name: 
+Name: Amra Jehiya
 
 Answer each question in your own words, two or three sentences. Do not paste an AI answer. You may be asked to explain these in a viva.
 
@@ -8,19 +8,22 @@ Answer each question in your own words, two or three sentences. Do not paste an 
 
 **1.1 (Explain)** In your own words, why did the Favourite button do nothing while favourite was an ordinary variable?
 
-My answer:
+My answer:  When we use a normal variable for `favourite`, the button doesn't work because React resets its value to `false` every time the component runs again. Also, changing a normal variable doesn't update the screen. But **State** remembers the value and automatically updates the screen whenever it changes.
 
 
 
 **1.2 (Predict)** There are three cards and you click Add favourite on the second one. Which cards change, and why?
 
 My answer:
-
+Only the second card changes because each `MovieCard` has its own separate state using `useState(false)`. When we click the button on card 2, only its favourite value changes. Cards 1 and 3 remain unchanged because they have their own states.
 
 
 **1.3 (Fix)** A friend wrote onClick={setFavourite(true)} and gets "Too many re-renders". What is wrong and how do you fix it?
 
 My answer:
+Using `onClick={setFavourite(true)}` is wrong because it runs immediately when React displays the component instead of waiting for a click. This keeps updating the state and causes an endless loop, showing **"Too many re-renders"** error.
+
+The correct way is `onClick={() => setFavourite(true)}`. This waits until the user clicks the button before changing the state.
 
 
 
